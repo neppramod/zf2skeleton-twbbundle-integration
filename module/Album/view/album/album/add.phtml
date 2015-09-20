@@ -1,0 +1,78 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: dell
+ * Date: 9/19/15
+ * Time: 11:33 AM
+ */
+
+use Zend\Form\Element;
+use Zend\Form\ElementInterface;
+
+$title = 'Add new album';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<?php
+$form->setAttribute('action', $this->url('album', array('action' => 'add')));
+//$this->form($form,\TwbBundle\Form\View\Helper\TwbBundleForm::LAYOUT_HORIZONTAL);
+
+$form->prepare();
+
+echo $this->form()->openTag($form);
+//$this->form(null,\TwbBundle\Form\View\Helper\TwbBundleForm::LAYOUT_HORIZONTAL)->openTag($form);
+//echo $this->formHidden($form->get('id'));
+//echo $this->formRow($form->get('title'));
+//echo $this->formRow($form->get('artist'));
+//echo $this->formSubmit($form->get('submit'));
+
+// This element not found
+//echo $this->formMultiCheckbox(new \Zend\Form\Element\ElementInterface());
+
+
+echo $this->formCollection($form);
+echo $this->formElementErrors(new \Zend\Form\Element());
+
+echo $this->fontAwesome('star',array('class' => 'pull-right'));  //tbs
+
+echo $this->formCheckbox(new \Zend\Form\Element\Checkbox('checkbox-input'));
+
+
+echo $this->formRow(new \Zend\Form\Element('my-element',  array(
+    'label' => 'My <i>Label</i> :',
+    'label_options' => array('disable_html_escape' => true)
+)));
+
+echo $this->formCheckbox(new \Zend\Form\Element\Checkbox('checkbox-input',array(
+    'label' => 'Prepend label',
+    'label_options' => array('position' => \Zend\Form\View\Helper\FormRow::LABEL_PREPEND)
+)));
+
+echo "Radio";
+
+//echo $this->formRadio(new \Zend\Form\Element\ElementInterface()); // tbs : Error
+
+$button = new Element\Button('custom-button');
+$button->setLabel("My Custom Button");
+
+echo $this->formButton($button);
+
+
+echo $this->alert('alert message',array('class' => 'alert-success'));  // tbs
+
+echo $this->badge('badge message',array('class' => 'pull-right'));
+
+echo $this->buttonGroup(array(new \Zend\Form\Element\Button('left', array('label' => 'Left'))),array('class' => 'pull-right'));
+echo $this->glyphicon('star',array('class' => 'pull-right'));
+//echo $this->fontAwesome('star',array('class' => 'pull-right'));
+
+//echo $this->dropdown(array('Item #1',\TwbBundle\View\Helper\TwbBundleDropDown::TYPE_ITEM_DIVIDER,'Item #2'));
+
+echo $this->label('Some message',array('class' => 'label-primary'));
+
+echo $this->label('label message',array('class' => 'label-primary','tagName' => 'a'));
+
+
+
+
+echo $this->form()->closeTag();
