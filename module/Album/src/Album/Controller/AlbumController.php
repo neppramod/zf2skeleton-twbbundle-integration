@@ -37,7 +37,7 @@ class AlbumController extends AbstractActionController
     public function addAction()
     {
         $form = new AlbumForm();
-        $form->get('submit')->setValue('Add');
+        $form->get('submit')->setValue('Add/Submit');
 
         $request = $this->getRequest();
         if ($request->isPost()) {

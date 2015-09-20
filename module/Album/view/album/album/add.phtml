@@ -74,5 +74,10 @@ echo $this->label('label message',array('class' => 'label-primary','tagName' => 
 
 
 
+$oButton = new \Zend\Form\Element\Button('large-button-primary',array('label' => 'Large button'));
+$oButton->setAttribute('class','btn-primary btn-lg');
+echo $this->formButton($oButton);
+
+
 
 echo $this->form()->closeTag();
