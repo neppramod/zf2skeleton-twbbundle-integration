@@ -10,6 +10,7 @@ return array(
     'modules' => array(
         'Application',
         'Album',
+        'Person',
         'TwbBundle',
     ),
 

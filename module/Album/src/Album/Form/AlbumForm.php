@@ -67,13 +67,16 @@ class AlbumForm extends Form
                 )
         ));
 
+
         $this->add(array(
             'name' => 'another-button',
             'attributes' => array(
                 'type' => 'button',
                 'class' => 'btn-primary btn-lg',
+                'value' => 'Btn'
             ),
-            'options' => array('label' => 'Btn'),
+            'twb-layout' => 'inline',
+            'icon' => 'star',
         ));
 
 
@@ -165,10 +168,6 @@ class AlbumForm extends Form
             'options' => array('value_options' => array(1,2,3,4,5)),
             'attributes' => array('multiple' => true)
         ));
-
-
-
-
 
 
 

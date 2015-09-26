@@ -1,0 +1,30 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: dell
+ * Date: 9/26/15
+ * Time: 5:48 PM
+ */
+
+$title = 'Edit person';
+$this->headTitle($title);
+?>
+    <h1><?php echo $this->escapeHtml($title); ?></h1>
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url(
+    'person',
+    array(
+        'action' => 'edit',
+        'id' => $this->id,
+    )
+));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+echo $this->formHidden($form->get('id'));
+echo $this->formRow($form->get('name'));
+echo $this->formRow($form->get('interest'));
+echo $this->formSubmit($form->get('submit'));
+//echo $this->formCollection($form);
+echo $this->form()->closeTag();
