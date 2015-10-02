@@ -73,10 +73,9 @@ class AlbumForm extends Form
             'attributes' => array(
                 'type' => 'button',
                 'class' => 'btn-primary btn-lg',
-                'value' => 'Btn'
+                'value' => 'Big button',
             ),
             'twb-layout' => 'inline',
-            'icon' => 'star',
         ));
 
 
@@ -114,8 +113,12 @@ class AlbumForm extends Form
         $this->add(array(
             'name' => 'input-checkbox',
             'type' => 'checkbox',
-            'options' => array('label' => 'Check me out')
+            'options' => array(
+                'label' => 'Check me out',
+                'position' => \Zend\Form\View\Helper\FormRow::LABEL_PREPEND,
+            ),
         ));
+
 
         $this->add(array(
             'name' => 'fancy-button',

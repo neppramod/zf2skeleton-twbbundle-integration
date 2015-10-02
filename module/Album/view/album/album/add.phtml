@@ -33,6 +33,12 @@ echo $this->form()->openTag($form);
 echo $this->formCollection($form);
 echo $this->formElementErrors(new \Zend\Form\Element());
 
+$element = new Element\Button('my-button');
+$element->setLabel("Reset");
+echo $this->formButton($element);
+
+
+
 echo $this->fontAwesome('star',array('class' => 'pull-right'));  //tbs
 
 echo $this->formCheckbox(new \Zend\Form\Element\Checkbox('checkbox-input'));

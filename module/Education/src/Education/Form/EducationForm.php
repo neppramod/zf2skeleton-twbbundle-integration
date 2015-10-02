@@ -6,17 +6,17 @@
  * Time: 6:28 PM
  */
 
-namespace Person\Form;
+namespace Education\Form;
 
 
 use Zend\Form\Form;
 
-class PersonForm extends Form
+class EducationForm extends Form
 {
     public function __construct($name = null)
     {
         // We want to ignore the name passed
-        parent::__construct('person');
+        parent::__construct('education');
 
         $this->add(array(
             'name' => 'id',
@@ -24,20 +24,20 @@ class PersonForm extends Form
         ));
 
         $this->add(array(
-            'name' => 'name',
+            'name' => 'level',
             'type' => 'Text',
             //'class' => 'form-control',
             'options' => array(
-                'label' => 'Name',
+                'label' => 'Level',
             ),
         ));
 
         $this->add(array(
-            'name' => 'interest',
+            'name' => 'description',
             'type' => 'Text',
             //'class' => 'form-control',
             'options' => array(
-                'label' => 'Interest',
+                'label' => 'Description',
             ),
         ));
 

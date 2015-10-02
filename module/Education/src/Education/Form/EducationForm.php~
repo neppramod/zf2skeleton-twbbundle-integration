@@ -11,12 +11,12 @@ namespace Person\Form;
 
 use Zend\Form\Form;
 
-class PersonForm extends Form
+class EducationForm extends Form
 {
     public function __construct($name = null)
     {
         // We want to ignore the name passed
-        parent::__construct('person');
+        parent::__construct('education');
 
         $this->add(array(
             'name' => 'id',

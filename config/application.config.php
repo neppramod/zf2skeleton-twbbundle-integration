@@ -11,6 +11,7 @@ return array(
         'Application',
         'Album',
         'Person',
+        'Education',
         'TwbBundle',
     ),
 
