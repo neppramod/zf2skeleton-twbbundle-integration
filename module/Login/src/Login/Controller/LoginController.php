@@ -36,15 +36,15 @@ class LoginController extends AbstractActionController
         $request = $this->getRequest();
         if ($request->isPost()) {
 
-            print_r($request->getPost());
 
-            $post = $request->getPost();
-            $username = $post['username'];
-            $password = $post['password'];
+            //print_r($request->getPost());
+            // $post = $request->getPost();
+            //$username = $post['username'];
+            //$password = $post['password'];
             //print_r($username);
-            echo "'".$username."'";
-            echo "'".$password."'";
-            echo "Hi";
+            //echo "'".$username."'";
+            //echo "'".$password."'";
+
 
 
 
@@ -52,34 +52,46 @@ class LoginController extends AbstractActionController
             $form->setInputFilter($login->getInputFilter());
             $form->setData($request->getPost());
 
-            $user = "abc";
-            $user = $this->getLoginTable()->getLoginbyusernamepassword($username, $password);
+
+
 
             if ($form->isValid()) {
 
-                return $this->redirect()->toRoute('login', array(
-                    'action' => 'loggedin'
-                ));
+                $login->exchangeArray($form->getData());
+
+
+
+
+                //echo "'".$login->username."'";
+                //echo "'".$login->password."'";
+                //$user = $this->getLoginTable()->getLoginbyusernamepassword($username, $password);
+
+
+
+
+                $user = $this->getLoginTable()->getLoginbyusernamepassword($login->username, $login->password);
+
+
+                if ($user != null) {  // Check the return status instead
+
+                    return $this->redirect()->toRoute('login', array(
+                        'action' => 'loggedin'
+                    ));
+
+                } else {
+                    return $this->redirect()->toRoute('login', array(
+                        'action' => 'loginfail'
+                    ));
+                }
 
             } else {
                 foreach ($form->getMessages() as $messageId => $message) {
                     echo "Validation failure '$messageId': $message\n";
                 }
             }
-
-            /*
-            if ($user != null) {
-               // return $this->_helper->redirector('login', 'loginfail');
-                return $this->_forward('loggedin');
-            }
-            */
-
-
         }
 
-       // echo $form->getValue();
-
-        return array('form' => $form, 'user' => $user);
+        return array('form' => $form);
     }
 
 
