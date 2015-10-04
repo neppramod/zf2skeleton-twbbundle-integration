@@ -12,6 +12,7 @@ return array(
         'Album',
         'Person',
         'Education',
+        'Login',
         'TwbBundle',
     ),
 

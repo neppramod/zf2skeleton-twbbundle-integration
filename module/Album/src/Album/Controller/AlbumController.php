@@ -60,7 +60,7 @@ class AlbumController extends AbstractActionController
     {
         $id = (int) $this->params()->fromRoute('id', 0);
         if (!$id) {
-            return $this->redirect()->toRouter('album', array(
+            return $this->redirect()->toRoute('album', array(
                 'action' => 'add'
             ));
         }

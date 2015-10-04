@@ -1,0 +1,24 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: dell
+ * Date: 10/4/15
+ * Time: 12:37 AM
+ */
+
+use Zend\Form\Element;
+$title = 'Login page';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<?php
+print_r($user);
+
+$form->setAttribute('action', $this->url('login', array('action' => 'login')));
+
+$form->prepare();
+
+echo $this->form()->openTag($form);
+echo $this->formCollection($form);
+echo $this->form()->closeTag();
